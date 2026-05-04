@@ -1,0 +1,647 @@
+/* ============================================================
+   0. Reset a la hoa de estilos
+   ============================================================ */
+
+@import url('reset.css');
+
+/* ============================================================
+   1. Google Fonts — Roboto
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+/* ============================================================
+   2. VARIABLES CSS — :root
+   ============================================================ */
+
+:root {
+  /* — Tipografía — */
+  --font-family: 'Roboto', sans-serif;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --fw-black: 900;
+
+  /* — Tamaños de texto — */
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+
+  /* — Layout — */
+  --max-width: 980px;
+  --nav-height: 64px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+
+  /* — Sombras — */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 6px 24px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.18);
+
+  /* — Transiciones — */
+  --t-fast: 120ms;
+  --t-base: 240ms;
+  --t-slow: 420ms;
+
+  /* --- MODO CLARO (por defecto) --- */
+  /* — Colores principales — */
+  --primary: #1a1a2e;
+  --secondary: #16213e;
+  --accent: #0f3460;
+  --highlight: #e94560;
+  --highlight-hover: #c73652;
+
+  /* — Neutros — */
+  --white: #ffffff;
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-500: #adb5bd;
+  --gray-700: #495057;
+  --gray-900: #212529;
+}
+/* --- MODO OSCURO (automático si el usuario lo tiene activado) --- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #e9ecef; /* lo que era oscuro, ahora claro */
+    --secondary: #dee2e6;
+    --accent: #ff6b8a; /* el azul oscuro se vuelve azul claro #7fb2ff*/
+    --highlight: #ff6b8a; /* el rojo se aclara un poco */
+    --highlight-hover: #e94560;
+
+    --white: #121212; /* lo que era blanco, ahora casi negro */
+    --gray-100: #1e1e1e;
+    --gray-200: #2a2a2a;
+    --gray-300: #3a3a3a;
+    --gray-500: #6c757d;
+    --gray-700: #adb5bd;
+    --gray-900: #f8f9fa;
+  }
+}
+
+/* ============================================================
+   3. ANIMACIONES @keyframes
+   ============================================================ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes headerIn {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Heartbeat — aplicada al logo */
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.15);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes softPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(233, 69, 96, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(233, 69, 96, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(233, 69, 96, 0);
+  }
+}
+
+/* ============================================================
+   4. BASE
+   ============================================================ */
+body {
+  font-family: var(--font-family);
+  font-weight: var(--fw-regular);
+  font-size: var(--text-base);
+  color: var(--gray-900);
+  background-color: var(--gray-100);
+  line-height: 1.6;
+  padding-top: var(--nav-height);
+}
+
+/* ============================================================
+   5. LAYOUT
+   ============================================================ */
+.container {
+  width: min(100%, var(--max-width));
+  margin: 0 auto;
+  padding: 5px 20px;
+}
+
+/* ============================================================
+   6. NAVEGACIÓN — Fija + Hamburguesa
+   ============================================================ */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  background-color: var(--primary);
+  border-bottom: 1px solid var(--secondary);
+  box-shadow: var(--shadow-md);
+  animation: headerIn 400ms ease both;
+}
+
+.site-nav .container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-size: var(--text-xl);
+  font-weight: var(--fw-black);
+  color: var(--white);
+  letter-spacing: 2px;
+  animation: heartbeat 1.5s infinite;
+  display: inline-block;
+  transition: color var(--t-base) ease;
+}
+
+.nav-logo:hover {
+  color: var(--highlight);
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-link {
+  list-style: none;
+  display: inline-block;
+  padding: 8px 14px;
+  font-size: var(--text-sm);
+  font-weight: var(--fw-medium);
+  color: var(--gray-300);
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  transition: color var(--t-base) ease, background-color var(--t-base) ease,
+    border-color var(--t-base) ease, transform var(--t-base) ease;
+}
+
+.nav-link:hover {
+  color: var(--white);
+  background-color: var(--accent);
+  border-color: var(--highlight);
+  transform: translateY(-2px);
+}
+
+/* Botón hamburguesa */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--white);
+  border-radius: 2px;
+  transition: transform var(--t-base) ease, opacity var(--t-base) ease;
+}
+
+.nav-toggle.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================================================
+   7. MAIN
+   ============================================================ */
+.site-main {
+  padding: 32px 0 48px;
+}
+
+.site-main .container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ============================================================
+   8. SECCIONES — Cards
+   ============================================================ */
+.hero,
+.posts,
+.about,
+.form-section,
+.skills-section {
+  background-color: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  animation: fadeUp var(--t-slow) ease both;
+}
+
+.posts {
+  animation-delay: 80ms;
+}
+.about {
+  animation-delay: 160ms;
+}
+.skills-section {
+  animation-delay: 240ms;
+}
+.form-section {
+  animation-delay: 80ms;
+}
+
+/* ============================================================
+   9. TIPOGRAFÍA
+   ============================================================ */
+.site-title {
+  font-size: var(--text-2xl);
+  font-weight: var(--fw-black);
+  color: var(--primary);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.section-title {
+  font-size: var(--text-lg);
+  font-weight: var(--fw-bold);
+  color: var(--accent);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  display: inline-block;
+  position: relative;
+}
+
+/* Línea gris — siempre visible */
+.section-title::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--gray-300);
+}
+
+/* Línea roja — se anima al cargar */
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background-color: var(--highlight);
+  animation: lineExpand 600ms ease forwards;
+}
+
+@keyframes lineExpand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   10. HERO
+   ============================================================ */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.hero-img {
+  width: clamp(100px, 50vw, 600px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--highlight);
+}
+
+.hero p {
+  color: var(--gray-700);
+  font-weight: var(--fw-light);
+  max-width: 560px;
+}
+
+.hero-links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+/* ============================================================
+   11. TARJETAS DE PROYECTO
+   ============================================================ */
+.post-card {
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-top: 16px;
+  transition: transform var(--t-base) ease, border-color var(--t-base) ease,
+    box-shadow var(--t-base) ease;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--highlight);
+  box-shadow: var(--shadow-md);
+}
+
+.post-title {
+  font-size: var(--text-lg);
+  font-weight: var(--fw-bold);
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.post-meta {
+  font-size: var(--text-sm);
+  font-weight: var(--fw-light);
+  color: var(--gray-500);
+  margin-bottom: 10px;
+}
+
+.post-excerpt {
+  color: var(--gray-700);
+  margin-bottom: 16px;
+}
+
+/* ============================================================
+   12. BOTONES
+   ============================================================ */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: var(--text-sm);
+  font-weight: var(--fw-medium);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--gray-300);
+  cursor: pointer;
+  transition: background-color var(--t-base) ease, color var(--t-base) ease,
+    border-color var(--t-base) ease, transform var(--t-base) ease,
+    box-shadow var(--t-base) ease;
+}
+
+.btn-primary {
+  background-color: var(--highlight);
+  color: var(--white);
+  border-color: var(--highlight);
+  animation: softPulse 2s infinite;
+  max-width: 100px;
+}
+
+.btn-primary:hover {
+  background-color: var(--highlight-hover);
+  border-color: var(--highlight-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary {
+  background-color: var(--white);
+  color: var(--accent);
+  border-color: var(--accent);
+  max-width: 100px;
+}
+
+.btn-secondary:hover {
+  background-color: var(--accent);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.post-link {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: var(--text-sm);
+  font-weight: var(--fw-medium);
+  color: var(--highlight);
+  border: 1px solid var(--highlight);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--t-base) ease, color var(--t-base) ease,
+    transform var(--t-base) ease;
+}
+
+.post-link:hover {
+  background-color: var(--highlight);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   13. FORMULARIO
+   ============================================================ */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+fieldset {
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+legend {
+  font-weight: var(--fw-bold);
+  color: var(--accent);
+  padding: 0 8px;
+  font-size: var(--text-base);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: var(--text-sm);
+  font-weight: var(--fw-medium);
+  color: var(--gray-700);
+}
+
+.form-input,
+.form-textarea {
+  padding: 10px 14px;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  font-family: var(--font-family);
+  background-color: var(--white);
+  color: var(--gray-900);
+  transition: border-color var(--t-base) ease, box-shadow var(--t-base) ease;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--gray-500);
+  font-weight: var(--fw-light);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--highlight);
+  box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.15);
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.form-group-inline {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ============================================================
+   14. FOOTER
+   ============================================================ */
+.site-footer {
+  background-color: var(--primary);
+  border-top: 1px solid var(--secondary);
+  padding: 20px 0;
+}
+
+.footer-text {
+  font-size: var(--text-sm);
+  font-weight: var(--fw-light);
+  color: var(--gray-500);
+  text-align: center;
+}
+
+/* ============================================================
+   15. RESPONSIVE
+   ============================================================ */
+
+/* Tablet (>= 768px): layout en fila */
+@media screen and (min-width: 768px) {
+  .site-main .container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .hero,
+  .posts,
+  .about {
+    flex: 2;
+  }
+  .sidebar {
+    flex: 1;
+  }
+}
+
+/* Móvil (< 640px): menú hamburguesa */
+@media screen and (max-width: 640px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background-color: var(--secondary);
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--accent);
+    box-shadow: var(--shadow-md);
+  }
+
+  .nav-list.open {
+    display: flex;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 12px 16px;
+  }
+
+  .site-title {
+    font-size: var(--text-xl);
+  }
+
+  /* eliminado .hero-img con tamaño fijo — el clamp lo gestiona solo */
+
+  .form-actions {
+    flex-direction: column;
+  }
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Pantallas muy pequeñas (< 320px): ocultar imagen */
+@media screen and (max-width: 320px) {
+  .hero-img {
+    display: none;
+  }
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto — Mario Simarro</title>
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a class="nav-logo" href="index.html">MS</a>
+      <button class="nav-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-list">
+        <li><a class="nav-link" href="index.html#about">About</a></li>
+        <li><a class="nav-link" href="#">Skills</a></li>
+        <li><a class="nav-link" href="index.html#cheatsheets">Cheatsheets</a></li>
+        <li><a class="nav-link" href="#">Recursos</a></li>
+        <li><a class="nav-link" href="form.html">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="site-main">
+    <div class="container">
+      <section class="form-section">
+        <h1 class="site-title">Formulario de contacto</h1>
+
+        <form action="success.html" method="GET" class="form">
+          <fieldset>
+            <legend class="section-title">Datos personales</legend>
+
+            <div class="form-group">
+              <label class="form-label" for="name">Nombre</label>
+              <input
+                class="form-input"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Tu nombre"
+                required
+                autocomplete="name"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email</label>
+              <input
+                class="form-input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="test@test.com"
+                required
+                autocomplete="email"
+              />
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend class="section-title">Mensaje</legend>
+
+            <div class="form-group">
+              <label class="form-label" for="asunto">Asunto</label>
+              <input
+                class="form-input"
+                type="text"
+                id="asunto"
+                name="asunto"
+                placeholder="Asunto"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="mensaje">Mensaje</label>
+              <textarea
+                class="form-textarea"
+                id="mensaje"
+                name="mensaje"
+                rows="6"
+                placeholder="Escribe tu mensaje..."
+                required
+              ></textarea>
+            </div>
+          </fieldset>
+
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit">Enviar</button>
+            <button class="btn btn-secondary" type="reset">Resetear</button>
+          </div>
+        </form>
+
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-text">
+        © 2026 Mario Simarro — Aspirante FullStack Developer
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
