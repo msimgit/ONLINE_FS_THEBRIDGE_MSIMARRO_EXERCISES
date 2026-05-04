@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Contacto</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+  </head>
+  <body>
+    <nav>
+      <strong><a href="/">MS</a></strong>
+      <ul>
+        <li><a href="">About</a></li>
+        <li><a href="">Skills</a></li>
+        <li><a href="">Cheatsheets</a></li>
+        <li><a href="">Recursos</a></li>
+        <li><a href="/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+    <main>
+      <h1>Formulario de contacto</h1>
+      <form action="success.html" method="GET">
+        <fieldset>
+          <legend>Datos personales</legend>
+          <div>
+            <label for="name">Nombre:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Tu nombre"
+              required
+            />
+          </div>
+          <br>
+          <div>
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="test@test.com"
+              required
+            />
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Mensaje</legend>
+          <div>
+            <label for="asunto">Asunto:</label>
+            <input
+              type="text"
+              id="asunto"
+              name="asunto"
+              required
+              placeholder="Asunto"
+            />
+          </div>
+          <br>
+          <div>
+            <label for="mensaje">Mensaje:</label>
+            <br>
+            <textarea name="mensaje" id="mensaje" cols="30" rows="10" required></textarea>
+
+          </div>
+        </fieldset>
+        <button type="submit">Enviar</button>
+        <button type="reset">Resetea</button>
+      </form>
+    </main>
+  </body>
+  <footer>
+    <p>© 2026 Mario Simarro - Aspirante Full </p>
+  </footer>
+</html>

@@ -1,0 +1,226 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+}
+
+header {
+  background-color: #f37021;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  position: relative;
+}
+
+.poke-logo {
+  width: 200px;
+
+}
+
+#app {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+  column-gap: 50px;  /* separación ENTRE tarjetas */
+  row-gap: 16px;     /* separación ENTRE filas */
+
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  color: orange;
+}
+
+.error-message {
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+#searchInput {
+
+  padding: 8px;
+  margin: 0 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+#searchBtn, #prevBtn, #nextBtn, #resetBtn {
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#searchBtn {
+  background-color: #4caf50;
+  color: white;
+}
+
+#prevBtn, #nextBtn, #resetBtn {
+  background-color: #2196F3;
+  color: white;
+}
+
+#searchBtn:hover, #prevBtn:hover, #nextBtn:hover, #resetBtn:hover {
+  opacity: 0.8;
+}
+
+#bug {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.pokemon-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #cfe0e8, white);
+  border-radius: 14px;
+  border: 3px solid orange;
+  font-family: inherit;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.pokemon-card:hover {
+  transform: scale(1.03);
+}
+
+.pokemon-card img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.pokemon-card h3 {
+  margin: 4px 0 0;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+.pokemon-search-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 360px;
+  padding: 16px;
+  background: linear-gradient(135deg, #cfe0e8, white);
+  border-radius: 16px;
+  border: 4px solid orange;
+  font-family: inherit;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.card-header {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.hp {
+  position: relative;
+  right: -50px;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+  font-weight: bold;
+
+  background-color: white; /* rojo estilo Pokémon */
+  color: orange;
+
+  border: 3px solid orange;
+  border-radius: 50%;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+.card-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.card-images img {
+  width: 72px;
+  image-rendering: pixelated;
+}
+
+.card-types {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.card-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 2px solid orange;
+  font-size: 13px;
+  text-align: center;
+}
+
+.type {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  background: #eee;
+}
+
+/* Ejemplo de colores */
+.type.fire { background: #f44336; color: white; }
+.type.water { background: #2196f3; color: white; }
+.type.grass { background: #4caf50; color: white; }
+
+.card-info p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.card-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.card-stats div {
+  width: 48%;
+  display: flex;
+  justify-content: space-between;
+}
