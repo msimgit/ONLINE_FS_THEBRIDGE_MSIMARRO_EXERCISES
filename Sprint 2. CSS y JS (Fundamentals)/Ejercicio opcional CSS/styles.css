@@ -1,0 +1,170 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  color: black;
+  background-color: white;
+}
+
+main {
+  padding: 1rem;
+}
+
+.warning {
+  margin: 0 0 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+.bonus {
+  border-top: 2px solid rgb(188, 238, 9);
+  border-bottom: 2px solid rgb(188, 238, 9);
+}
+.bonus strong {
+  padding: 3px;
+  margin-right: 5px;
+  background-color: rgb(188, 238, 9);
+  border-radius: 5px;
+}
+.bonus span {
+  display: block;
+  margin: 10px 0;
+}
+
+.yellow {
+  background-color: #fdda9c;
+  border-left: 5px solid brown;
+}
+.yellow span {
+  display: block;
+}
+.red {
+  background-color: #ffe1e3;
+  border-left: 5px solid red;
+}
+.green {
+  background-color: #c5f7d0;
+  border-left: 5px solid rgb(12, 97, 5);
+}
+img {
+  height: 150px;
+}
+.line {
+  width: 600px;
+  height: 100px;
+}
+.color {
+  width: 100px;
+  height: 100px;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  line-height: 100px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.first {
+  background-color: #007bff;
+}
+
+.second {
+  background-color: #00cc99;
+}
+
+.third {
+  background-color: #ff9933;
+}
+
+.fourth {
+  background-color: #ff66b3;
+}
+
+.fifth {
+  background-color: #6600cc;
+}
+
+.sixth {
+  background-color: #0099cc;
+}
+
+/* Aquí tu css */
+
+ul .menu {
+  list-style: none;
+  margin: 0 0 0 -40px;
+  padding: 0;
+  text-align: center;
+  color: white;
+  font-size: small;
+  height: 30px;
+  width: 430px;
+  line-height: 30px; /* igual que height */
+}
+
+.menu:nth-of-type(1) {
+  background-color: blue;
+}
+.menu:nth-of-type(2) {
+  background-color: green;
+}
+.menu:nth-of-type(3) {
+  background-color: orange;
+}
+.menu:nth-of-type(4) {
+  background-color: red;
+}
+.menu:nth-of-type(5) {
+  background-color: #5d345b;
+}
+
+.menu:hover {
+  background-color: white;
+  color: black;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.important {
+  box-sizing: border-box;
+  padding: 1.25rem;
+}
+
+.title {
+  font-size: 18px;
+  color: darkblue;
+}
+
+.text {
+  font-size: 13px;
+  color: blue;
+}
+
+.squares {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap-reverse;
+  gap: 8px;
+}
+
+.color {
+  flex: 1 1 120px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Colores individuales */
+.first  { background: #3B82F6; }
+.second { background: #22C97A; }
+.third  { background: #F97316; }
+.fourth { background: #F472B6; }
+.fifth  { background: #7C3AED; }
+.sixth  { background: #22AACC; }

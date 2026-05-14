@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  color: black;
+  background-color: white;
+}
+
+main {
+  padding: 1rem;
+}
+
+.warning {
+  margin: 0 0 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.bonus {
+  margin: 10px 0;
+  border-top: 2px solid rgb(188, 238, 9);
+  border-bottom: 2px solid rgb(188, 238, 9);
+}
+.bonus strong {
+  padding: 3px;
+  margin-right: 5px;
+  background-color: rgb(188, 238, 9);
+  border-radius: 5px;
+}
+.bonus span {
+  display: block;
+  margin: 10px 0;
+}
+
+.yellow {
+  background-color: #fdda9c;
+  border-left: 5px solid brown;
+}
+.yellow span {
+  display: block;
+}
+.red {
+  background-color: #ffe1e3;
+  border-left: 5px solid red;
+}

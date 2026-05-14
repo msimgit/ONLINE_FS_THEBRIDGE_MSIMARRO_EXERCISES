@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <main>
+    <hr !>
+    <b><small>PREMIOS OSCAR 2026</small></b>
+    <h1>Comparte tu pronóstico</h1>
+    <form action="success.html" method="GET">
+      <fieldset>
+        <legend>Déjanos tus datos</legend>
+        <div>
+          <label for="name">Nombre:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Nombre Apellido"
+            required
+          />
+        </div>
+
+        <div>
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="email@email.com"
+            required
+          />
+        </div>
+      </fieldset>  
+      <fieldset>
+        <legend>Tu votación</legend>
+        <div>
+          <label for="peli">Mejor película</label>
+          <select name="peli" id="peli" required>
+            <option value=""></option>
+            <option value="peli1">F1: La película</option>
+            <option value="peli2">Una batalla tras otra</option>
+            <option value="peli3">Bugonia</option>
+            <option value="peli4">Frankenstein</option>
+            <option value="peli5">Hamnet</option>
+            <option value="peli6">Marty Supreme</option>
+            <option value="peli7">El agente secreto</option>
+            <option value="peli8">Valor sentimental</option>
+            <option value="peli9">Los pecadores</option>
+            <option value="peli10">Sueños de trenes</option>
+          </select>
+        </div>  
+
+        <div>
+          <label for="actriz">Mejor actriz</label>
+          <select name="actriz" id="actriz" required>
+            <option value=""></option>
+            <option value="actriz1">Jessie Buckley (Hamnet)</option>
+            <option value="actriz2">Emma Stone (Bugonia)</option>
+            <option value="actriz3">Kate Hudson (Song Sung Blue)</option>
+            <option value="actriz4">Renate Reinsve (Valor sentimental)</option>
+            <option value="actriz5">Rose Byrne (Si pudiera, te daría una patada)</option>
+          </select>
+        </div>  
+        
+        <div>
+          <label for="actor">Mejor actor</label>
+          <select name="actor" id="actor" required>
+            <option value=""></option>
+            <option value="actor1">Leonardo DiCaprio (Una batalla tras otra)</option>
+            <option value="actor2">Timothée Chalamet (Marty Supreme)</option>
+            <option value="actor3">Michael B. Jordan (Los pecadores)</option>
+            <option value="actor4">Ethan Hawke (Blue Moon)</option>
+            <option value="actor5">Wagner Moura (El agente secreto)</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="more">¿Algo más que quieras compartir con nosotros?</label>
+          <textarea id="more" name="more" rows="5" cols="40">
+          </textarea>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Enviar pronóstico</legend>
+        <div>
+          <input type="checkbox" id="bulletin" name="bulletin" checked />
+          <label for="Bulletin">Subscribirte a nuestro boletín de noticias</label>
+        </div>
+        
+          <button type="submit">Enviar</button>
+          <input type="reset" value="Borrar">
+        </form>
+      </fieldset>
+    </form>
+    <a href=/exercise.html>Volver al ejercicio</a>  
+  </main>
+</body>
+</html>
