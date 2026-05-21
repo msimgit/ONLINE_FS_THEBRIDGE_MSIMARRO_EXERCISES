@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML5 Cheatsheet — Mario Simarro</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div id="site-header"></div>
+
+    <div class="cheatsheet-layout">
+
+      <!-- Sticky nav — oculta en móvil -->
+      <aside class="cheatsheet-sidebar">
+        <nav class="sticky-nav">
+          <p class="sticky-nav-title">HTML5</p>
+          <ul>
+            <li><a href="#estructura">Estructura</a></li>
+            <li><a href="#semantica">Semántica</a></li>
+            <li><a href="#formularios">Formularios</a></li>
+            <li><a href="#multimedia">Multimedia</a></li>
+            <li><a href="#tablas">Tablas</a></li>
+            <li><a href="#meta">Meta & SEO</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="cheatsheet-content">
+        <header class="cheatsheet-header">
+          <img src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML5" class="cheatsheet-icon" />
+          <div>
+            <h1 class="cheatsheet-title">HTML5 Cheatsheet</h1>
+            <p class="cheatsheet-subtitle">Guía rápida de referencia para HTML5</p>
+          </div>
+        </header>
+
+        <!-- ESTRUCTURA -->
+        <section id="estructura" class="cheatsheet-section">
+          <h2 class="section-title">Estructura básica</h2>
+          <p>Todo documento HTML5 debe comenzar con la declaración de tipo de documento y seguir esta estructura mínima:</p>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;Título de la página&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css" /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Contenido aquí --&gt;
+    &lt;script src="main.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          <div class="cheatsheet-tip">
+            <strong>💡 Tip:</strong> El atributo <code>lang="es"</code> es importante para accesibilidad y SEO. Siempre especifica el idioma del documento.
+          </div>
+        </section>
+
+        <!-- SEMÁNTICA -->
+        <section id="semantica" class="cheatsheet-section">
+          <h2 class="section-title">Elementos semánticos</h2>
+          <p>HTML5 introduce elementos que describen su significado tanto para el navegador como para el desarrollador:</p>
+          <pre><code>&lt;header&gt;  &lt;!-- Cabecera de página o sección --&gt;
+&lt;nav&gt;     &lt;!-- Navegación principal --&gt;
+&lt;main&gt;    &lt;!-- Contenido principal (único por página) --&gt;
+&lt;article&gt; &lt;!-- Contenido independiente y reutilizable --&gt;
+&lt;section&gt; &lt;!-- Sección temática con encabezado --&gt;
+&lt;aside&gt;   &lt;!-- Contenido relacionado / barra lateral --&gt;
+&lt;footer&gt;  &lt;!-- Pie de página o sección --&gt;
+&lt;figure&gt;  &lt;!-- Contenido ilustrativo (imagen, gráfico) --&gt;
+&lt;figcaption&gt; &lt;!-- Descripción del figure --&gt;
+&lt;time datetime="2026-01-01"&gt;1 de enero&lt;/time&gt;</code></pre>
+
+          <h3 class="cheatsheet-h3">Jerarquía de encabezados</h3>
+          <pre><code>&lt;h1&gt;Título principal (1 por página)&lt;/h1&gt;
+&lt;h2&gt;Sección principal&lt;/h2&gt;
+&lt;h3&gt;Subsección&lt;/h3&gt;
+&lt;h4&gt;Apartado menor&lt;/h4&gt;
+&lt;h5&gt;Sub-apartado&lt;/h5&gt;
+&lt;h6&gt;Nivel más profundo&lt;/h6&gt;</code></pre>
+          <div class="cheatsheet-tip">
+            <strong>💡 Tip:</strong> No saltes niveles de encabezado. Usa h1→h2→h3 en orden, nunca h1→h3.
+          </div>
+        </section>
+
+        <!-- FORMULARIOS -->
+        <section id="formularios" class="cheatsheet-section">
+          <h2 class="section-title">Formularios</h2>
+          <pre><code>&lt;form action="/submit" method="POST"&gt;
+
+  &lt;!-- Texto --&gt;
+  &lt;input type="text" name="nombre" placeholder="Tu nombre" required /&gt;
+
+  &lt;!-- Email --&gt;
+  &lt;input type="email" name="email" placeholder="tu@email.com" /&gt;
+
+  &lt;!-- Password --&gt;
+  &lt;input type="password" name="pass" minlength="8" /&gt;
+
+  &lt;!-- Número --&gt;
+  &lt;input type="number" min="0" max="100" step="1" /&gt;
+
+  &lt;!-- Fecha --&gt;
+  &lt;input type="date" name="fecha" /&gt;
+
+  &lt;!-- Checkbox --&gt;
+  &lt;input type="checkbox" id="acepto" name="acepto" /&gt;
+  &lt;label for="acepto"&gt;Acepto los términos&lt;/label&gt;
+
+  &lt;!-- Select --&gt;
+  &lt;select name="pais"&gt;
+    &lt;option value="es"&gt;España&lt;/option&gt;
+    &lt;option value="mx"&gt;México&lt;/option&gt;
+  &lt;/select&gt;
+
+  &lt;!-- Textarea --&gt;
+  &lt;textarea name="mensaje" rows="4" cols="40"&gt;&lt;/textarea&gt;
+
+  &lt;!-- Botón de envío --&gt;
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+  &lt;button type="reset"&gt;Limpiar&lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+          <div class="cheatsheet-tip">
+            <strong>💡 Tip:</strong> Siempre asocia <code>&lt;label&gt;</code> a su <code>&lt;input&gt;</code> usando <code>for</code> e <code>id</code> coincidentes. Mejora accesibilidad y usabilidad.
+          </div>
+        </section>
+
+        <!-- MULTIMEDIA -->
+        <section id="multimedia" class="cheatsheet-section">
+          <h2 class="section-title">Multimedia</h2>
+          <pre><code>&lt;!-- Imagen con texto alternativo --&gt;
+&lt;img src="foto.jpg" alt="Descripción de la imagen" width="800" height="600" /&gt;
+
+&lt;!-- Imagen responsiva --&gt;
+&lt;picture&gt;
+  &lt;source media="(min-width: 768px)" srcset="img-grande.jpg" /&gt;
+  &lt;img src="img-pequena.jpg" alt="Descripción" /&gt;
+&lt;/picture&gt;
+
+&lt;!-- Video --&gt;
+&lt;video controls width="640" poster="portada.jpg"&gt;
+  &lt;source src="video.mp4" type="video/mp4" /&gt;
+  &lt;source src="video.webm" type="video/webm" /&gt;
+  Tu navegador no soporta video HTML5.
+&lt;/video&gt;
+
+&lt;!-- Audio --&gt;
+&lt;audio controls&gt;
+  &lt;source src="audio.mp3" type="audio/mpeg" /&gt;
+  &lt;source src="audio.ogg" type="audio/ogg" /&gt;
+&lt;/audio&gt;
+
+&lt;!-- Iframe (embed externo) --&gt;
+&lt;iframe
+  src="https://www.youtube.com/embed/ID"
+  title="Descripción"
+  allowfullscreen
+  loading="lazy"&gt;
+&lt;/iframe&gt;</code></pre>
+        </section>
+
+        <!-- TABLAS -->
+        <section id="tablas" class="cheatsheet-section">
+          <h2 class="section-title">Tablas</h2>
+          <pre><code>&lt;table&gt;
+  &lt;caption&gt;Título descriptivo de la tabla&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th scope="col"&gt;Nombre&lt;/th&gt;
+      &lt;th scope="col"&gt;Rol&lt;/th&gt;
+      &lt;th scope="col"&gt;Nivel&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;HTML&lt;/td&gt;
+      &lt;td&gt;Estructura&lt;/td&gt;
+      &lt;td&gt;Avanzado&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan="2"&gt;CSS + JS&lt;/td&gt;  &lt;!-- Columnas combinadas --&gt;
+      &lt;td rowspan="2"&gt;Intermedio&lt;/td&gt; &lt;!-- Filas combinadas --&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td colspan="3"&gt;Total: 3 tecnologías&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+          <div class="cheatsheet-tip">
+            <strong>💡 Tip:</strong> Las tablas son para datos tabulares, no para maquetar. Para layout, usa Flexbox o Grid.
+          </div>
+        </section>
+
+        <!-- META & SEO -->
+        <section id="meta" class="cheatsheet-section">
+          <h2 class="section-title">Meta & SEO</h2>
+          <pre><code>&lt;head&gt;
+  &lt;!-- Charset --&gt;
+  &lt;meta charset="UTF-8" /&gt;
+
+  &lt;!-- Viewport para responsive --&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+
+  &lt;!-- SEO básico --&gt;
+  &lt;meta name="description" content="Descripción de la página (150-160 chars)" /&gt;
+  &lt;meta name="keywords" content="palabra1, palabra2" /&gt;
+  &lt;meta name="author" content="Mario Simarro" /&gt;
+
+  &lt;!-- Open Graph (redes sociales) --&gt;
+  &lt;meta property="og:title" content="Título en redes" /&gt;
+  &lt;meta property="og:description" content="Descripción en redes" /&gt;
+  &lt;meta property="og:image" content="https://ejemplo.com/imagen.jpg" /&gt;
+  &lt;meta property="og:url" content="https://ejemplo.com" /&gt;
+
+  &lt;!-- Twitter Card --&gt;
+  &lt;meta name="twitter:card" content="summary_large_image" /&gt;
+
+  &lt;!-- Favicon --&gt;
+  &lt;link rel="icon" href="/favicon.ico" type="image/x-icon" /&gt;
+  &lt;link rel="apple-touch-icon" href="/apple-touch-icon.png" /&gt;
+
+  &lt;!-- Título (importante para SEO) --&gt;
+  &lt;title&gt;Página | Sitio Web&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+        </section>
+
+      </main>
+    </div>
+
+    <div id="site-footer"></div>
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
