@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto - Mi proyecto personal</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div id="site-header"></div>
+
+    <main class="site-main">
+      <div class="container">
+        <section class="form-section">
+          <h2 class="section-title">Contacto</h2>
+          <p style="color:var(--gray-500);font-size:var(--text-sm);margin-bottom:28px;font-weight:var(--fw-light);">
+            ¿Tienes un proyecto en mente? Escríbeme y hablamos.
+          </p>
+
+          <!-- FormSubmit.co — cambia el email por el tuyo -->
+          <form
+            class="contact-form"
+            action="https://formsubmit.co/mario@coiim.es"
+            method="POST"
+          >
+            <!-- Campos hidden de configuración -->
+            <input type="hidden" name="_subject"  value="Nuevo mensaje desde CV Portfolio" />
+            <input type="hidden" name="_captcha"  value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <!-- Redirige a la misma página tras el envío -->
+            <input type="hidden" name="_next" value="https://msimgit.github.io/form.html?enviado=1" />
+
+            <div class="form-group">
+              <label class="form-label" for="nombre">Nombre</label>
+              <input class="form-input" type="text" id="nombre" name="nombre"
+                placeholder="Tu nombre" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email</label>
+              <input class="form-input" type="email" id="email" name="email"
+                placeholder="tu@email.com" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="asunto">Asunto</label>
+              <input class="form-input" type="text" id="asunto" name="asunto"
+                placeholder="¿De qué quieres hablar?" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="mensaje">Mensaje</label>
+              <textarea class="form-input form-textarea" id="mensaje" name="mensaje"
+                rows="5" placeholder="Cuéntame tu idea..." required></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+              <button class="btn btn-secondary" type="reset">Limpiar</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <div id="site-footer"></div>
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>

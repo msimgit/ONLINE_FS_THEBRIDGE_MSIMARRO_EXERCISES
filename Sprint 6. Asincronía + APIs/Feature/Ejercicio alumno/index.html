@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio - Mi proyecto personal</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div id="site-header"></div>
+
+    <main class="site-main">
+
+      <!-- HERO -->
+      <div class="container">
+        <section id="about" class="hero">
+          <img class="hero-img"
+            src="https://res.cloudinary.com/dyd4vcwkg/image/upload/v1773342353/ChatGPT_Image_12_mar_2026_20_05_10_o94deg.png"
+            alt="Foto de Mario Simarro" />
+          <h1 class="site-title">Mario Simarro</h1>
+          <article>
+            <h2 class="section-title">Aspirante a FullStack Developer</h2>
+            <p>Ingeniero Industrial y MBA con más de 15 años en el sector del agua. En 2025 decidí dar el salto: <strong>Data Science primero, Full Stack después</strong>. No para cambiar de sector, sino para liderarlo desde dentro con nuevas herramientas.</p>
+            <p>De la industria al dato, y del dato al producto: pensamiento analítico con ambición creativa.</p>
+            <div class="hero-links">
+              <a class="btn btn-primary" href="https://www.linkedin.com/in/mariosimarro/" target="_blank">LinkedIn</a>
+              <a class="btn btn-primary" href="https://github.com/msimgit" target="_blank">GitHub</a>
+              <a class="btn btn-secondary" href="form.html">Contacto</a>
+            </div>
+          </article>
+        </section>
+      </div>
+
+      <!-- SKILLS -->
+      <div class="container">
+        <section id="skills" class="posts">
+          <h2 class="section-title">Skills</h2>
+          <div class="skills-filter">
+            <button class="skills-filter-btn active" data-state="dominada">Dominadas</button>
+            <button class="skills-filter-btn" data-state="aprendiendo">Aprendiendo</button>
+          </div>
+          <div id="skills-list" class="skills-grid"></div>
+        </section>
+      </div>
+    </br>
+      <!-- PROYECTOS EN PROGRESO -->
+      <div class="container">
+        <section id="proyectos" class="posts">
+          <h2 class="section-title">Proyectos en progreso</h2>
+
+          <div class="projects-grid">
+
+            <article class="project-card">
+              <div class="project-body">
+                <h3 class="project-title">Portfolio Web Personal</h3>
+                <p class="project-desc">
+                  Sitio web de portfolio desarrollado durante la formación en The Bridge.
+                  Integra HTML, CSS y JavaScript modular con arquitectura ES6, modo oscuro
+                  persistente, widgets dinámicos y diseño responsive.
+                </p>
+                <div class="project-tags">
+                  <span class="project-tag">HTML5</span>
+                  <span class="project-tag">CSS3</span>
+                  <span class="project-tag">JavaScript ES6</span>
+                  <span class="project-tag">Responsive</span>
+                  <span class="project-tag">WeatherAPI</span>
+                </div>
+              </div>
+              <div class="project-actions">
+                <a class="btn btn-primary" href="https://github.com/msimgit/ONLINE_FS_THEBRIDGE_MSIMARRO_EXERCISES" target="_blank">Ver en GitHub</a>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </br>
+      <!-- CHEATSHEETS -->
+      <div class="container">
+        <section id="cheatsheets" class="posts">
+          <h2 class="section-title">Cheatsheets</h2>
+          <div id="cheatsheets-list" class="cheatsheet-grid"></div>
+        </section>
+      </div>
+
+    </main>
+
+    <div id="site-footer"></div>
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
