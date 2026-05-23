@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Cheatsheet - Mi proyecto personal</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div id="site-header"></div>
+
+    <div class="cheatsheet-layout">
+      <aside class="cheatsheet-sidebar">
+        <nav class="sticky-nav">
+          <p class="sticky-nav-title">JavaScript</p>
+          <ul>
+            <li><a href="#variables">Variables</a></li>
+            <li><a href="#funciones">Funciones</a></li>
+            <li><a href="#arrays">Arrays</a></li>
+            <li><a href="#objetos">Objetos</a></li>
+            <li><a href="#dom">DOM</a></li>
+            <li><a href="#eventos">Eventos</a></li>
+            <li><a href="#modulos">Módulos ES6</a></li>
+            <li><a href="#async">Async / Await</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="cheatsheet-content">
+        <header class="cheatsheet-header">
+          <img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript" class="cheatsheet-icon" />
+          <div>
+            <h1 class="cheatsheet-title">JavaScript Cheatsheet</h1>
+            <p class="cheatsheet-subtitle">Guía rápida de referencia para JS ES6+</p>
+          </div>
+        </header>
+
+        <section id="variables" class="cheatsheet-section">
+          <h2 class="section-title">Variables y tipos</h2>
+          <pre><code>// Declaración de variables
+const nombre = "Mario";      // no reasignable
+let edad = 30;               // reasignable, scope de bloque
+var legado = "evitar";       // scope de función, evitar en ES6+
+
+// Tipos de datos
+const texto = "Hola mundo";              // String
+const numero = 42;                       // Number
+const decimal = 3.14;                    // Number
+const booleano = true;                   // Boolean
+const nulo = null;                       // Null (ausencia intencionada)
+let indefinido;                          // Undefined
+const simbolo = Symbol("id");           // Symbol
+const grande = 9007199254740991n;        // BigInt
+
+// Template literals
+const saludo = `Hola, ${nombre}. Tienes ${edad} años.`;
+const multilinea = `
+  Primera línea
+  Segunda línea
+`;
+
+// Destructuring
+const [a, b, ...resto] = [1, 2, 3, 4, 5];
+const { nombre: n, edad: e } = { nombre: "Mario", edad: 30 };
+
+// Spread operator
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1, 4, 5];            // [1, 2, 3, 4, 5]
+const obj2 = { ...obj1, nuevo: "valor" };</code></pre>
+        </section>
+
+        <section id="funciones" class="cheatsheet-section">
+          <h2 class="section-title">Funciones</h2>
+          <pre><code>// Función declarada
+function sumar(a, b) {
+  return a + b;
+}
+
+// Función expresada
+const restar = function(a, b) {
+  return a - b;
+};
+
+// Arrow function
+const multiplicar = (a, b) => a * b;
+const cuadrado = n => n * n;             // paréntesis opcionales con 1 param
+const saludar = () => "Hola!";
+
+// Parámetros por defecto
+const potencia = (base, exp = 2) => base ** exp;
+
+// Rest parameters
+const suma = (...nums) => nums.reduce((acc, n) => acc + n, 0);
+
+// Función con múltiples líneas
+const procesarUsuario = (usuario) => {
+  const { nombre, edad } = usuario;
+  if (edad &lt; 18) return null;
+  return `${nombre} es mayor de edad`;
+};
+
+// Funciones de orden superior
+const doblar = arr => arr.map(n => n * 2);
+const mayores = (arr, min) => arr.filter(n => n &gt;= min);</code></pre>
+        </section>
+
+        <section id="arrays" class="cheatsheet-section">
+          <h2 class="section-title">Arrays — Métodos esenciales</h2>
+          <pre><code>const nums = [1, 2, 3, 4, 5];
+const usuarios = [
+  { nombre: "Ana", edad: 25 },
+  { nombre: "Luis", edad: 30 },
+  { nombre: "María", edad: 22 }
+];
+
+// Iterar
+nums.forEach(n => console.log(n));
+
+// Transformar → nuevo array
+const dobles = nums.map(n => n * 2);           // [2, 4, 6, 8, 10]
+
+// Filtrar
+const pares = nums.filter(n => n % 2 === 0);  // [2, 4]
+
+// Reducir a un valor
+const total = nums.reduce((acc, n) => acc + n, 0);  // 15
+
+// Buscar
+const mayor30 = usuarios.find(u => u.edad &gt; 28);  // { nombre: "Luis", ... }
+const idx = nums.findIndex(n => n === 3);           // 2
+
+// Comprobar
+const todosMayores = usuarios.every(u => u.edad &gt;= 18);   // true
+const alguienJoven = usuarios.some(u => u.edad &lt; 25);     // true
+const incluyeA = nums.includes(3);                         // true
+
+// Ordenar (modifica el original)
+const ordenados = [...usuarios].sort((a, b) => a.edad - b.edad);
+
+// Encadenar
+const nombresOrdenados = usuarios
+  .filter(u => u.edad &gt;= 25)
+  .map(u => u.nombre)
+  .sort();
+
+// Aplanar
+const matriz = [[1, 2], [3, 4]];
+const plano = matriz.flat();                   // [1, 2, 3, 4]
+
+// Convertir a string y viceversa
+const csv = nums.join(", ");                   // "1, 2, 3, 4, 5"
+const arr = "1,2,3".split(",");               // ["1", "2", "3"]</code></pre>
+        </section>
+
+        <section id="objetos" class="cheatsheet-section">
+          <h2 class="section-title">Objetos</h2>
+          <pre><code>// Crear objeto
+const persona = {
+  nombre: "Mario",
+  edad: 30,
+  saludar() {
+    return `Hola, soy ${this.nombre}`;
+  }
+};
+
+// Acceder a propiedades
+persona.nombre;           // dot notation
+persona["edad"];          // bracket notation (útil con variables)
+
+// Métodos de Object
+Object.keys(persona);     // ["nombre", "edad", "saludar"]
+Object.values(persona);   // ["Mario", 30, f]
+Object.entries(persona);  // [["nombre","Mario"], ["edad",30], ...]
+
+// Clonar (shallow)
+const copia = { ...persona };
+const copia2 = Object.assign({}, persona);
+
+// Comprobar propiedad
+"nombre" in persona;              // true
+persona.hasOwnProperty("edad");   // true
+
+// Clase (azúcar sintáctico sobre prototipos)
+class Animal {
+  constructor(nombre, sonido) {
+    this.nombre = nombre;
+    this.sonido = sonido;
+  }
+
+  hablar() {
+    return `${this.nombre} dice ${this.sonido}`;
+  }
+}
+
+class Perro extends Animal {
+  constructor(nombre) {
+    super(nombre, "guau");
+  }
+  buscar() { return `${this.nombre} busca la pelota`; }
+}
+
+const rex = new Perro("Rex");
+rex.hablar();    // "Rex dice guau"</code></pre>
+        </section>
+
+        <section id="dom" class="cheatsheet-section">
+          <h2 class="section-title">Manipulación del DOM</h2>
+          <pre><code>// Seleccionar elementos
+const titulo = document.querySelector("h1");
+const botones = document.querySelectorAll(".btn");
+const header = document.getElementById("site-header");
+
+// Leer y modificar contenido
+titulo.textContent = "Nuevo título";
+titulo.innerHTML = "&lt;em&gt;Cursiva&lt;/em&gt;";
+
+// Atributos
+titulo.setAttribute("data-id", "123");
+titulo.getAttribute("data-id");
+titulo.removeAttribute("data-id");
+
+// Clases
+titulo.classList.add("activo");
+titulo.classList.remove("activo");
+titulo.classList.toggle("activo");
+titulo.classList.contains("activo");  // true/false
+
+// Estilos inline
+titulo.style.color = "red";
+titulo.style.fontSize = "2rem";
+
+// Crear e insertar elementos
+const nuevo = document.createElement("p");
+nuevo.textContent = "Párrafo nuevo";
+document.body.appendChild(nuevo);
+document.body.insertBefore(nuevo, titulo);
+titulo.insertAdjacentHTML("afterend", "&lt;p&gt;Después del título&lt;/p&gt;");
+
+// Eliminar
+nuevo.remove();
+titulo.parentNode.removeChild(titulo);
+
+// Navegar por el DOM
+titulo.parentElement;
+titulo.children;
+titulo.nextElementSibling;
+titulo.previousElementSibling;</code></pre>
+        </section>
+
+        <section id="eventos" class="cheatsheet-section">
+          <h2 class="section-title">Eventos</h2>
+          <pre><code>const btn = document.querySelector(".btn");
+
+// Añadir evento
+btn.addEventListener("click", (event) => {
+  console.log("Clic en:", event.target);
+  event.preventDefault();    // evita comportamiento por defecto
+  event.stopPropagation();   // evita que el evento suba (bubbling)
+});
+
+// Eliminar evento (necesita función con nombre)
+const handler = () => console.log("clic");
+btn.addEventListener("click", handler);
+btn.removeEventListener("click", handler);
+
+// Delegación de eventos (eficiente con listas)
+document.querySelector("ul").addEventListener("click", (e) => {
+  if (e.target.matches("li")) {
+    console.log("Clic en:", e.target.textContent);
+  }
+});
+
+// Eventos comunes
+// Ratón:    click, dblclick, mouseenter, mouseleave, mousemove
+// Teclado:  keydown, keyup, keypress
+// Formulario: submit, input, change, focus, blur, reset
+// Documento: DOMContentLoaded, load, resize, scroll
+
+// DOMContentLoaded (esperar a que el DOM esté listo)
+document.addEventListener("DOMContentLoaded", () => {
+  // Código que necesita el DOM
+});
+
+// IntersectionObserver (elemento visible en viewport)
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll(".animado").forEach(el => observer.observe(el));</code></pre>
+        </section>
+
+        <section id="modulos" class="cheatsheet-section">
+          <h2 class="section-title">Módulos ES6</h2>
+          <pre><code>// ── archivo: math.js ──
+// Export nombrado
+export const PI = 3.14159;
+export function sumar(a, b) { return a + b; }
+export const restar = (a, b) => a - b;
+
+// Export por defecto (uno por archivo)
+export default function calcular() { /* ... */ }
+
+// ── archivo: main.js ──
+// Import nombrado
+import { PI, sumar, restar } from "./math.js";
+
+// Import con alias
+import { sumar as add } from "./math.js";
+
+// Import por defecto
+import calcular from "./math.js";
+
+// Import todo
+import * as Math from "./math.js";
+Math.PI;      // 3.14159
+Math.sumar(2, 3);  // 5
+
+// HTML: script como módulo
+// &lt;script type="module" src="./js/main.js"&gt;&lt;/script&gt;</code></pre>
+          <div class="cheatsheet-tip">
+            <strong>💡 Tip:</strong> Los módulos siempre necesitan un servidor HTTP. Abrir un HTML directamente (file://) no permite imports.
+          </div>
+        </section>
+
+        <section id="async" class="cheatsheet-section">
+          <h2 class="section-title">Async / Await & Promesas</h2>
+          <pre><code>// Promesa básica
+const promesa = new Promise((resolve, reject) => {
+  setTimeout(() => resolve("Datos listos"), 1000);
+});
+
+promesa.then(datos => console.log(datos)).catch(err => console.error(err));
+
+// Fetch API (peticiones HTTP)
+fetch("https://api.ejemplo.com/datos")
+  .then(res => res.json())
+  .then(datos => console.log(datos))
+  .catch(err => console.error("Error:", err));
+
+// Async / Await (más legible)
+async function cargarDatos() {
+  try {
+    const respuesta = await fetch("https://api.ejemplo.com/datos");
+    const datos = await respuesta.json();
+    return datos;
+  } catch (error) {
+    console.error("Error al cargar:", error);
+  }
+}
+
+// Promise.all (ejecutar varias promesas en paralelo)
+const [usuarios, productos] = await Promise.all([
+  fetch("/api/usuarios").then(r => r.json()),
+  fetch("/api/productos").then(r => r.json())
+]);
+
+// localStorage
+localStorage.setItem("tema", "oscuro");
+const tema = localStorage.getItem("tema");  // "oscuro"
+localStorage.removeItem("tema");
+localStorage.clear();
+
+// JSON con localStorage
+const usuario = { nombre: "Mario", nivel: 5 };
+localStorage.setItem("usuario", JSON.stringify(usuario));
+const recuperado = JSON.parse(localStorage.getItem("usuario"));</code></pre>
+        </section>
+
+      </main>
+    </div>
+
+    <div id="site-footer"></div>
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
