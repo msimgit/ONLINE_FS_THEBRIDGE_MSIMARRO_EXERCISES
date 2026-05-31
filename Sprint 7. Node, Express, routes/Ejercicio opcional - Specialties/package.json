@@ -1,0 +1,18 @@
+{
+  "name": "specialities",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/js/app.js",
+  "scripts": {
+    "start": "node --watch ./src/js/app.js",
+    "dev": "node --watch ./src/js/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
