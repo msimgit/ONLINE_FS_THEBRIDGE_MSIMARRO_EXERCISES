@@ -1,9 +1,0 @@
-# Use this workspace to collaborate
-workspace:
-  id: 557a6d4f-c1e7-4df6-8167-b386d2d99c7b
-
-localResources:
-  docs:
-    - ..\Sprint 7. Node, Express, routes\Ejercicio opcional -
-      Specialties\readme.md
--dom\readme.md
