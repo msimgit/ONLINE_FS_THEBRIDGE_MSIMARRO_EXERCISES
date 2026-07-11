@@ -24,7 +24,7 @@ package-lock.json
 .env.production
 .pass
 .git
-postman
+.postman
 
 # Editor
 .vscode/*
