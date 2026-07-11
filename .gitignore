@@ -44,7 +44,6 @@ package-lock.json
 /out/
 /public/
 /build-output/
-/.postman/
 
 # OS-generated files
 .DS_Store
@@ -58,7 +57,4 @@ Thumbs.db
 
 # Node.js
 node_modules/
-
-
-
-
+.postman/
