@@ -214,6 +214,8 @@ Respuesta esperada:
 ```
 
 Guarda ese token
+// "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNzgzNzc5ODk5LCJleHAiOjE3ODM3ODM0OTl9.tBXFrg4Rd5vsXTm-kh9wKAI0PJt2otQouvR7bGVYUPk"
+
 
 ---
 
