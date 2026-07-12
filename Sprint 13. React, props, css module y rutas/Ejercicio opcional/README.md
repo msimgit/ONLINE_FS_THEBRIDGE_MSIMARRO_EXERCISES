@@ -1,28 +1,70 @@
 # Ejercicio: Cambio de Nombre del Profesor
-En este ejercicio tendrás que poner en práctica lo aprendido con useState. Para ello se pide que hagas una lista de nombres de tus profesores y que cada vez que cliques en uno de ellos cambie el nombre del profesor. Los pasos a seguir son los siguientes:
 
-1. Clonate este repositorio y en el componente funcional `App`, importa `useState` desde React.
-2. Define dos variables de estado utilizando `useState`:
-   - `name`: inicializada con el valor `"Sofía"`, que representa el nombre actual del profesor.
-   - `newName`: inicializada con el valor `''`, que representa el nuevo nombre ingresado por el usuario.
-3. En el JSX del componente, renderiza un título `<h2>` con el texto "Teacher Name" seguido del valor de `name`.
-4. Renderiza una lista `<ul>` con tres elementos `<li>`, cada uno con un nombre de profesor diferente:
-   - El texto de cada elemento `<li>` debe ser uno de los nombres predefinidos ("Data", "Reyes", "Yolanda").
-   - Al hacer clic en cada elemento de la lista, se debe cambiar el nombre del profesor mostrado en el título a uno de los nombres predefinidos correspondientes.
-   - Utiliza la función `setName` proporcionada por `useState` para actualizar el nombre del profesor cuando se haga clic en un elemento de la lista.
+Ejercicio de práctica de `useState` en React. Partiendo de una lista de profesores, al hacer clic en uno de ellos cambia el nombre del profesor mostrado en el título. Se ha completado el ejercicio base, el bonus del formulario y dos ampliaciones propias.
 
+## Requisitos del ejercicio
 
+1. En el componente funcional `App`, importar `useState` desde React.
+2. Definir dos variables de estado:
+   - `name`: inicializada con `"Sofía"`, representa el nombre actual del profesor.
+   - `newName`: inicializada con `''`, representa el nuevo nombre introducido por el usuario.
+3. Renderizar un título `<h2>` con el texto "Teacher Name" seguido del valor de `name`.
+4. Renderizar una lista `<ul>` con los nombres predefinidos ("Data", "Reyes", "Yolanda"); al hacer clic en cada `<li>`, actualizar el nombre mostrado mediante `setName`.
 
+### Bonus propuesto
 
-## Bonus
-Como reto, te proponemos que modifiques el ejercicio anterior y en vez de tener que clicar en el nombre para cambiar su valor crees un formulario que cuando se envíe cambie el nombre: 
-1. Modifica el componente `App`.
-2. Implementa una función `changeName` que se encargue de actualizar el nombre del profesor:
-   - Verifica que `newName` no esté vacío antes de actualizar el nombre.
-   - Actualiza el estado `name` con el valor de `newName`.
-   - Restablece `newName` a una cadena vacía después de actualizar el nombre.
-4. En el JSX del componente, renderiza un formulario `<form>` con los siguientes elementos:
-   - Un campo de entrada de texto `<input>` con el atributo `type` establecido en `"text"`, el atributo `value` vinculado a `newName`, el atributo `onChange` que actualiza `newName` cuando cambia el valor y el atributo `placeholder` con el texto "add a name".
-   - Un botón `<button>` con el tipo establecido en `"submit"` y el texto "Add".
-5. Utiliza la función `changeName` para manejar el evento `onSubmit` del formulario. Esto asegurará que el nombre se actualice cuando el formulario se envíe.
-6. Exporta el componente `App` al final del archivo.
+Añadir un formulario que al enviarse cambie el nombre:
+
+- Función `changeName` que verifica que `newName` no esté vacío, actualiza `name` y restablece `newName` a cadena vacía.
+- Input controlado (`type="text"`, `value` vinculado a `newName`, `onChange` que actualiza el estado, `placeholder="add a name"`).
+- Botón `type="submit"` con el texto "Add".
+- El formulario maneja el evento `onSubmit` con `changeName`.
+
+## Desarrollo realizado
+
+Se ha resuelto el ejercicio completo (base + bonus) y se ha ampliado con funcionalidad adicional, aplicando una arquitectura de componentes con separación de responsabilidades en lugar de concentrar todo el código en `App`.
+
+### Estructura del proyecto
+
+```
+src/
+├── App.jsx                      # Componente padre: estado y lógica
+├── components/
+│   ├── teacherName.jsx          # Título con el profesor activo
+│   ├── teacherList.jsx          # Lista clicable con botón de borrado
+│   └── teacherForm.jsx          # Formulario controlado (bonus)
+└── data/
+    └── profesores.js            # Datos iniciales (simula BBDD)
+```
+
+### Funcionalidad implementada
+
+**Ejercicio base:**
+- Título `<h2>` que muestra el profesor activo (`TeacherName`).
+- Lista de profesores clicable: al pulsar un nombre, se actualiza el título (`TeacherList`).
+
+**Bonus:**
+- Formulario con input controlado y botón "Add" (`TeacherForm`).
+- `changeName` valida que el campo no esté vacío, actualiza `name` con `e.preventDefault()` para evitar la recarga de página, y limpia el input tras enviar.
+
+**Ampliaciones propias:**
+- La lista de profesores es una variable de estado (`useState` inicializado desde `data/profesores.js`), no un array estático.
+- Al enviar un nombre nuevo por el formulario, además de mostrarse en el título se **añade a la lista** (si no existe ya), usando spread para mantener la inmutabilidad: `setProfesores([...profesores, newName])`.
+- Cada profesor tiene un botón ❌ para **eliminarlo de la lista**, implementado con `filter` y `e.stopPropagation()` para que el clic en la X no seleccione a la vez al profesor. Si se borra el profesor activo, el título se restablece a "Sofía".
+
+### Conceptos aplicados
+
+- `useState` con múltiples estados (`name`, `newName`, `profesores`).
+- Inmutabilidad del estado: spread operator para añadir, `filter` para borrar.
+- Input controlado y manejo de formularios (`onSubmit`, `e.preventDefault()`).
+- Comunicación padre-hijo: el estado vive en `App` y baja como props; los eventos suben mediante callbacks (`onSelect`, `onDelete`).
+- Propagación de eventos: `e.stopPropagation()` en elementos anidados con handlers propios.
+
+## Ejecución
+
+```bash
+npm install
+npm run dev
+```
+
+Abre `http://localhost:5173` en el navegador.
