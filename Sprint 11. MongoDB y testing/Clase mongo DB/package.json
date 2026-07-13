@@ -1,0 +1,19 @@
+{
+  "name": "clase-mongo-db",
+  "version": "1.0.0",
+  "description": "Este es un proyecto básico que utiliza Mongoose para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en una base de datos MongoDB.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.7.4"
+  }
+}
