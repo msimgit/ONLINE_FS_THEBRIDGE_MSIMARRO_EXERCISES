@@ -1,0 +1,16 @@
+{
+  "name": "ejercicio-opcional-jest",
+  "version": "1.0.0",
+  "description": "Cesta de la compra con testing en Jest",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^30.4.2"
+  },
+  "main": "cart.js",
+  "keywords": [],
+  "author": ""
+}
