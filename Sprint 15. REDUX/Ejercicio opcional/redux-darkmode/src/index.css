@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 2rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Modo claro */
+.app.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Modo oscuro */
+.app.dark {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Que los enlaces y botones hereden el modo */
+.app a {
+  color: inherit;
+}
+
+.app button {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
